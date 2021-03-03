@@ -22,6 +22,7 @@
         <module>plink-rpc</module>
         <module>plink-schedule</module>
         <module>plink-sql</module>
+        <module>plink-opt</module>
 
         <!-- should be last -->
         <module>plink-dist</module>
@@ -35,7 +36,7 @@
         <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
 
         <scala.binary.version>2.11</scala.binary.version>
-        <flink.version>1.11.0</flink.version>
+        <flink.version>1.12.0</flink.version>
         <hadoop.version>2.7.3</hadoop.version>
 
         <junit.version>4.13.1</junit.version>
@@ -87,6 +88,17 @@
                 <artifactId>plink-sql-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.hairless</groupId>
+                <artifactId>plink-sql-flink-dependency</artifactId>
+                <type>pom</type>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.hairless</groupId>
+                <artifactId>plink-opt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!--spring boots modules-->
             <dependency>
@@ -135,6 +147,21 @@
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-core</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime-web_${scala.binary.version}</artifactId>
                 <version>${flink.version}</version>
             </dependency>
 

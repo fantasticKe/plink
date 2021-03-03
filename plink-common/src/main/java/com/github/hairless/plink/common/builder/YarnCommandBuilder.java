@@ -33,7 +33,7 @@ public class YarnCommandBuilder implements FlinkShellCommandBuilder {
     private static final String taskManagerSlots = "-ys {0} ";
     private static final String parallelism = "-p {0} ";
     private static final String confItem = "-yD \"{0}\" ";
-    private static final String classpathItem = "-C \"file://{0}\" ";
+    private static final String classpathItem = "-C \"{0}\" ";
     private static final String yarnShip = "-yt {0} ";
     private static final String mainClass = "-c {0} ";
     private static final String mainJarPath = "{0} ";
@@ -47,8 +47,8 @@ public class YarnCommandBuilder implements FlinkShellCommandBuilder {
         if (StringUtils.isNotBlank(flinkSubmitOptions.getJobName())) {
             builder.append(format(jobName, flinkSubmitOptions.getJobName()));
         }
-        if (StringUtils.isNotBlank(flinkSubmitOptions.getQueue())) {
-            builder.append(format(queue, flinkSubmitOptions.getQueue()));
+        if (StringUtils.isNotBlank(flinkConfig.getQueue())) {
+            builder.append(format(queue, flinkConfig.getQueue()));
         }
         if (StringUtils.isNotBlank(flinkConfig.getJobManagerMemory())) {
             builder.append(format(jobManagerMemory, flinkConfig.getJobManagerMemory()));
